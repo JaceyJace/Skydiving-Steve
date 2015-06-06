@@ -27,9 +27,9 @@ function getDeltaTime()
 	return deltaTime;
 }
 
-//-------------------- Don't modify anything above here
+//--------------------******************** Don't modify anything above here ********************--------------------//
 
-//VARIABLES
+//------------*********** VARIABLES ***********------------//
 //SCREEN SIZE
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
@@ -39,32 +39,50 @@ var STATE_SPLASH = 0;
 var STATE_GAME = 1;
 var STATE_WIN = 2;
 var STATE_LOSE = 3;
-
 var gameState = STATE_SPLASH;
 
 
-// some variables to calculate the Frames Per Second (FPS - this tells use
-// how fast our game is running, and allows us to make the game run at a 
-// constant speed)
+//FRAMES PER SECOND
 var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
 
+//LEVEL LAYERS
+var LAYER_BACKGROUND = 0;
+var LAYER_PLATFORMS = 1;
+var LAYER_OBJECT_ENEMY = 2;
+var LAYER COUNT = 3;
+var LAYER_OBJECT_TRIGGER = 3;
+
 // load an image to draw
 
 
+
+var splashTimer = 3;
 function runStateSplash(deltaTime)
 {
+	context.fillStyle = "#ccc";
+	context.fillRect(0, 0, canvas.width, canvas.height);
 
+	splashTimer -= deltaTime;
+	if(splashTimer <= 0)
+	{
+		gameState = STATE_GAME;
+	}
 }
 
 function runStateGame(deltaTime)
 {
 
+	/*context.fillStyle = "#F10B0B";
+	context.fillRect(0, 0, canvas.width, canvas.height);*/
+
+	var grass = document.createElement("img");
+	grass.src = "grass.png";
+	context.drawImage(grass, 0, 0);
 
 
-
-//--------keep down the bottom of RunStateGame----------//
+            //-------- keep down the bottom of RunStateGame ----------//
 	// update the frame counter 
 	fpsTime += deltaTime;
 	fpsCount++;
@@ -83,44 +101,41 @@ function runStateGame(deltaTime)
 
 function runStateWin(deltaTime)
 {
-
+	context.fillStyle = "#ccc";
+	context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function runStateLose(deltaTime)
 {
-
+	context.fillStyle = "#ccc";
+	context.fillRect(0, 0, canvas.width, canvas.height);
 }
-
-
-
-
 
 function run()
 {
-	context.fillStyle = "#ccc";		
-	context.fillRect(0, 0, canvas.width, canvas.height);
+	//context.fillStyle = "#f00";		
+	//context.fillRect(0, 0, canvas.width, canvas.height);
 	
 	var deltaTime = getDeltaTime();
 
 	switch(gameState)
 	{
 		case STATE_SPLASH:
-			runStateSplash;
+			runStateSplash(deltaTime);
 			break;
 		case STATE_GAME:
-			runStateGame;
+			runStateGame(deltaTime);
 			break;
 		case STATE_WIN:
-			runStateWin;
+			runStateWin(deltaTime);
 			break;
 		case STATE_LOSE:
-			runStateLose;
+			runStateLose(deltaTime);
 			break;
 	}
-	
-	context.drawImage(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
 }
 
+//initialize();
 
 
 
@@ -138,8 +153,7 @@ function run()
 
 
 
-
-//-------------------- Don't modify anything below here
+//--------------------******************** Don't modify anything below here ********************--------------------//
 
 
 // This code will set up the framework so that the 'run' function is called 60 times per second.
