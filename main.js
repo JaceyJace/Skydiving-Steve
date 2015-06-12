@@ -53,21 +53,21 @@ var LAYER_BACKGROUND = 0;
 var LAYER_PLATFORMS = 1;
 var LAYER_BACKGROUND2 = 2;
 //var LAYER_OBJECT_ENEMY = 2;
-var LAYER_COUNT = 2;
+var LAYER_COUNT = 1;
 //var LAYER_OBJECT_TRIGGER = 3;
 
 //Setting Terms For Layers
-var TILE = 30;
-var MAP = {tw: 12, th: 1000};
+var TILE = 35
+var MAP = {tw: 12, th: 100};
 var TILESET_TILE = TILE * 2;
 var TILESET_PADDING = 2;
 var TILESET_SPACING = 2;
-var TILESET_COUNT_X = 28;
-var TILESET_COUNT_Y = 15;
+var TILESET_COUNT_X = 14;//27;
+var TILESET_COUNT_Y = 14;//14;
 
 //Image for JSON
-var Jungle_terrain = document.createElement("img");
-Jungle_terrain.src = "Jungle_terrain.png";
+var tileset = document.createElement("img");
+tileset.src = "tileset.png";
 
 
 
@@ -91,28 +91,49 @@ function drawMap()
 	for(var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++)
 	{
 		var idx = 0;
-		for(var y = 0; y<level1.layers[layerIdx].height; y++)
+		for(var y = 0; y<level2.layers[layerIdx].height; y++)
 		{
-			for(var x = 0; x<level1.layers[layerIdx].width; x++)
+			for(var x = 0; x<level2.layers[layerIdx].width; x++)
 			{
-				if(level1.layers[layerIdx].data[idx] != 0)
+				if(level2.layers[layerIdx].data[idx] != 0)
 				{
-					var tileIndex = level1.layers[layerIdx].data[idx]-1;
+					var tileIndex = level2.layers[layerIdx].data[idx]-1;
 					var sx = TILESET_PADDING + (tileIndex % TILESET_COUNT_X)*(TILESET_TILE + TILESET_SPACING);
 					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y))* (TILESET_TILE + TILESET_SPACING);
-					context.drawImage(Jungle_terrain, sx, sy, TILESET_TILE, TILESET_TILE,x * TILE, (y-1)* TILE, TILESET_TILE, TILESET_TILE);
+					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE,x * TILE, (y-1)* TILE, TILESET_TILE, TILESET_TILE);
 				}
 				idx++;
 			}
 		}
 	}
 }
+	/*r(var layerIdx=0; layerIdx<LAYER_COUNT; layerIdx++)
+	{
+		var idx = 0;
+		for(var y=0; y < level1.layers[layerIdx].height; y++)
+		{
+			var idx = y * level1.layers[layerIdx].width + startX;
+			for(var x = startX; x < startX + maxTiles; x++)
+			{
+				if(level1.layers[layerIdx].data[idx] !=0)
+				{
+					//the tiles in the Tiled map are base 1 (meaning a value of 0 means no tile),
+					//so subtract one from the tileset to get the correct tile
+					var tileIndex = level1.layers[layerIdx].data[idx]-1;
+					var sx = TILESET_PADDING + (tileIndex % TILESET_COUNT_X)*(TILESET_TILE + TILESET_SPACING);
+					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y))* (TILESET_TILE + TILESET_SPACING);
+					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE, (x-startX)*TILE - offsetX, (y-1)*TILE, TILESET_TILE, TILESET_TILE);
+				}
+				idx++;
+			}
+		}
+	}*/
 
 function runStateGame(deltaTime)
 {
 
-	/*context.fillStyle = "#F10B0B";
-	context.fillRect(0, 0, canvas.width, canvas.height);*/
+	context.fillStyle = "#F10B0B";
+	context.fillRect(0, 0, canvas.width, canvas.height);
 
 	drawMap();
 	/*
@@ -140,7 +161,7 @@ function runStateGame(deltaTime)
 	context.fillText("FPS: " + fps, 5, 20, 100);
 }
 
-function runStateWin(deltaTime)
+/*function runStateWin(deltaTime)
 {
 	context.fillStyle = "#ccc";
 	context.fillRect(0, 0, canvas.width, canvas.height);
@@ -150,7 +171,7 @@ function runStateLose(deltaTime)
 {
 	context.fillStyle = "#ccc";
 	context.fillRect(0, 0, canvas.width, canvas.height);
-}
+}*/
 
 function run()
 {
@@ -158,6 +179,10 @@ function run()
 	//context.fillRect(0, 0, canvas.width, canvas.height);
 	
 	var deltaTime = getDeltaTime();
+
+	//drawMap();
+
+
 
 	switch(gameState)
 	{
