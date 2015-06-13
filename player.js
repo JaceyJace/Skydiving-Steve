@@ -8,18 +8,30 @@ var ANIM_MAX = 1;//3;
 
 var Player = function() 
 	{
-		/*this.sprite = new Sprite("Steve.png");					
+		this.sprite = new Sprite("steve.png");					
 
-		this.sprite.buildAnimation(12, 8, 165, 126, 0.05,		//idle
-			[0, 1, 2, 3, 4, 5, 6, 7]);
+		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//idle
+			[0, 1, 2, 3, 4, 5]);
 
-		this.sprite.buildAnimation(12, 8, 165, 126, 0.05,		//fall left
-			[8, 9, 10, 11, 12]);
+		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall left
+			[6]);
 
-		this.sprite.buildAnimation(12, 8, 165, 126, 0.05,		//fall left
-			[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]);
+		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
+			[7]);
 
-*/
+		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
+			[8]);
+
+		this.position = new Vector2 ();
+		this.position.Set(, );
+		this.width = 200;
+		this.height = 141;
+		this.velocity = new Vector2 ();
+		this.isDead = false;
+		this.direction = LEFT;
+		this.cooldownTimer = 0;		
+
+/*
 		//CHUCK
 		this.sprite = new Sprite("ChuckNorris.png");					
 
@@ -38,7 +50,7 @@ var Player = function()
 		this.velocity = new Vector2 ();
 		this.isDead = false;
 		this.direction = LEFT;
-		this.cooldownTimer = 0;
+		this.cooldownTimer = 0;*/
 	};
 
 		//PLAYER MOVEMENT
@@ -54,7 +66,7 @@ var Player = function()
 		var ddx = 0; // acceleration
 		var ddy = GRAVITY;
 
-		// check keypress events
+		// CHECK KEYPRESS
 		if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true) 
 		{
 		 	left = true;
@@ -71,7 +83,7 @@ var Player = function()
 		 		this.sprite.setAnimation(ANIM_WALK_RIGHT);
 		}
 
-
+		// STOP SHAKING
 	if (left)
 		 	ddx = ddx - ACCEL; // player wants to go left
 		else if (wasleft)
@@ -95,7 +107,7 @@ var Player = function()
 		}
 	}
 
-
+		//DRAW PLAYER
 Player.prototype.draw = function()
 	{
 		this.sprite.draw(context, this.position.x - worldOffsetX, this.position.y);
