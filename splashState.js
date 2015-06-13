@@ -14,7 +14,6 @@ SplashState.prototype.unload = function()
 
 SplashState.prototype.update = function(deltaTime) 
 {
-
 	this.splashTimer -= deltaTime;
 	if(this.splashTimer <= 0)
 	{

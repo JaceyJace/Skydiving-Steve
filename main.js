@@ -43,6 +43,9 @@ var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
 
+//PLAYER
+var player = new Player();
+
 //CREATING THE LEVEL
 //Level Layers
 var LAYER_BACKGROUND = 0;
