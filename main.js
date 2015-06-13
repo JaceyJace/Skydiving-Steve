@@ -34,13 +34,9 @@ function getDeltaTime()
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
 
-//GAME STATES
-var STATE_SPLASH = 0;
-var STATE_GAME = 1;
-var STATE_WIN = 2;
-var STATE_LOSE = 3;
-var gameState = STATE_SPLASH;
-
+//STATE MANAGER
+var stateManager = new StateManager();
+stateManager.pushState(new SplashState());
 
 //FRAMES PER SECOND
 var fps = 0;
@@ -69,24 +65,7 @@ var TILESET_COUNT_Y = 14;//14;
 var tileset = document.createElement("img");
 tileset.src = "tileset.png";
 
-
-
-
-
-var splashTimer = 3;
-function runStateSplash(deltaTime)
-{
-	context.fillStyle = "#ccc";
-	context.fillRect(0, 0, canvas.width, canvas.height);
-
-	splashTimer -= deltaTime;
-	if(splashTimer <= 0)
-	{
-		gameState = STATE_GAME;
-	}
-}
-
-function drawMap()
+	function drawMap()
 {
 	for(var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++)
 	{
@@ -107,44 +86,20 @@ function drawMap()
 		}
 	}
 }
-	/*r(var layerIdx=0; layerIdx<LAYER_COUNT; layerIdx++)
-	{
-		var idx = 0;
-		for(var y=0; y < level1.layers[layerIdx].height; y++)
-		{
-			var idx = y * level1.layers[layerIdx].width + startX;
-			for(var x = startX; x < startX + maxTiles; x++)
-			{
-				if(level1.layers[layerIdx].data[idx] !=0)
-				{
-					//the tiles in the Tiled map are base 1 (meaning a value of 0 means no tile),
-					//so subtract one from the tileset to get the correct tile
-					var tileIndex = level1.layers[layerIdx].data[idx]-1;
-					var sx = TILESET_PADDING + (tileIndex % TILESET_COUNT_X)*(TILESET_TILE + TILESET_SPACING);
-					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y))* (TILESET_TILE + TILESET_SPACING);
-					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE, (x-startX)*TILE - offsetX, (y-1)*TILE, TILESET_TILE, TILESET_TILE);
-				}
-				idx++;
-			}
-		}
-	}*/
 
-function runStateGame(deltaTime)
+
+function run()
 {
-
-	context.fillStyle = "#F10B0B";
+	context.fillStyle = "#ccc";		
 	context.fillRect(0, 0, canvas.width, canvas.height);
-
-	drawMap();
-	/*
-	var grass = document.createElement("img");
-	grass.src = "grass.png";
-	context.drawImage(grass, 0, 0);*/
-
 	
+	var deltaTime = getDeltaTime();
 
+	stateManager.update(deltaTime);
 
-            //-------- keep down the bottom of RunStateGame ----------//
+	stateManager.draw();
+
+	            //-------- keep down the bottom of run ----------//
 	// update the frame counter 
 	fpsTime += deltaTime;
 	fpsCount++;
@@ -159,46 +114,8 @@ function runStateGame(deltaTime)
 	context.fillStyle = "#f00";
 	context.font="14px Arial";
 	context.fillText("FPS: " + fps, 5, 20, 100);
-}
-
-/*function runStateWin(deltaTime)
-{
-	context.fillStyle = "#ccc";
-	context.fillRect(0, 0, canvas.width, canvas.height);
-}
-
-function runStateLose(deltaTime)
-{
-	context.fillStyle = "#ccc";
-	context.fillRect(0, 0, canvas.width, canvas.height);
-}*/
-
-function run()
-{
-	//context.fillStyle = "#f00";		
-	//context.fillRect(0, 0, canvas.width, canvas.height);
-	
-	var deltaTime = getDeltaTime();
-
-	//drawMap();
 
 
-
-	switch(gameState)
-	{
-		case STATE_SPLASH:
-			runStateSplash(deltaTime);
-			break;
-		case STATE_GAME:
-			runStateGame(deltaTime);
-			break;
-		case STATE_WIN:
-			runStateWin(deltaTime);
-			break;
-		case STATE_LOSE:
-			runStateLose(deltaTime);
-			break;
-	}
 }
 
 //initialize();
