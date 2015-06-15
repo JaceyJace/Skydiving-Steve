@@ -32,7 +32,7 @@ var Player = function()
 		this.position.set(150, 300);
 		this.width = 200;
 		this.height = 141;
-		this.velocity = new Vector2 ();
+		this.velocity = new Vector2 (0,0);
 		this.isDead = false;
 		this.direction = LEFT;
 		this.cooldownTimer = 0;		
