@@ -11,16 +11,16 @@ var Player = function()
 		this.sprite = new Sprite("steve.png");					
 
 		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//idle
-			[0, 1, 2, 3, 4, 5]);
+			[0, 1, 2, 3, 4,]);
 
 		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall left
+			[5]);
+
+		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
 			[6]);
 
 		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
 			[7]);
-
-		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
-			[8]);
 
 		for(var i=0; i<ANIM_MAX; i++)
 		{
@@ -116,8 +116,5 @@ var Player = function()
 		//DRAW PLAYER
 Player.prototype.draw = function()
 	{
-		this.sprite.draw(context, this.position.x - worldOffsetY, this.position.y);
-		context.save();
-		context.translate(this.x, this.y);
-		context.restore();
+		this.sprite.draw(context, this.position.x , this.position.y);
 	}
