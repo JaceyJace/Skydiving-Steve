@@ -22,8 +22,14 @@ var Player = function()
 		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
 			[8]);
 
+		for(var i=0; i<ANIM_MAX; i++)
+		{
+			this.sprite.setAnimationOffset(i, -55, -87)
+		}
+
+
 		this.position = new Vector2 ();
-		this.position.set(0, 10);
+		this.position.set(150, 300);
 		this.width = 200;
 		this.height = 141;
 		this.velocity = new Vector2 ();
