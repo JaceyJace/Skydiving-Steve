@@ -23,7 +23,7 @@ var Player = function()
 			[8]);
 
 		this.position = new Vector2 ();
-		this.position.Set(, );
+		this.position.set(0, 10);
 		this.width = 200;
 		this.height = 141;
 		this.velocity = new Vector2 ();
