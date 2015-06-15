@@ -1,4 +1,3 @@
-
 var Keyboard = function() {
 	var self = this;
 	

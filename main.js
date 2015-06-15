@@ -46,6 +46,9 @@ var fpsTime = 0;
 //PLAYER
 var player = new Player();
 
+var keyboard = new Keyboard();
+
+
 //CREATING THE LEVEL
 //Level Layers
 var LAYER_BACKGROUND = 0;
@@ -79,6 +82,15 @@ function tileToPixel(tile)
 function pixelToTile(pixel)
 {
 	return Math.floor(pixel/TILE);
+}
+
+function bound(value, min, max)
+{
+	if(value < min)
+		return min;
+	if(value > max)
+		return max;
+	return value;
 }
 
 //Image for JSON
