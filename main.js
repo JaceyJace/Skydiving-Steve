@@ -64,31 +64,101 @@ var TILESET_SPACING = 2;
 var TILESET_COUNT_X = 14;//27;
 var TILESET_COUNT_Y = 14;//14;
 
+var METER = TILE;
+var GRAVITY = METER * 9.8 * 6;
+var MAXDX = METER * 10;
+var MAXDY = METER * 15;
+var ACCEL = MAXDX * 2;
+var FRICTION = MAXDX * 6;
+
+//sidescrolling
+function tileToPixel(tile)
+{
+	return tile * TILE;
+}
+function pixelToTile(pixel)
+{
+	return Math.floor(pixel/TILE);
+}
+
 //Image for JSON
 var tileset = document.createElement("img");
 tileset.src = "tileset.png";
 
-	function drawMap()
+var worldOffsetY = 0;
+function drawMap()
 {
+	var startY = -1;
+	var maxTiles = Math.floor(SCREEN_HEIGHT / TILE) + 2;
+	var tileY = pixelToTile(player.position.y);
+	var offsetY = TILE + Math.floor(player.position.y%TILE);
+
+	startY = tileY - Math.floor(maxTiles / 2);
+
+	if(startY < -1)
+	{
+		startY = 0;
+		offsetY = 0;
+	}
+	if(startY > MAP.th - maxTiles + 1)
+	{
+		startY = MAP.th - maxTiles + 1;
+		offsetY = TILE;
+	}
+
+	worldOffsetY = startY * TILE + offsetY;
+
 	for(var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++)
 	{
-		var idx = 0;
 		for(var y = 0; y<level2.layers[layerIdx].height; y++)
 		{
 			for(var x = 0; x<level2.layers[layerIdx].width; x++)
 			{
+				var idx = x = startY; x < startY + maxTiles; x++;
 				if(level2.layers[layerIdx].data[idx] != 0)
 				{
 					var tileIndex = level2.layers[layerIdx].data[idx]-1;
-					var sx = TILESET_PADDING + (tileIndex % TILESET_COUNT_X)*(TILESET_TILE + TILESET_SPACING);
-					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y))* (TILESET_TILE + TILESET_SPACING);
-					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE,x * TILE, (y-1)* TILE, TILESET_TILE, TILESET_TILE);
+					var sx = TILESET_PADDING + (tileIndex % TILESET_COUNT_X)*
+					(TILESET_TILE + TILESET_SPACING);
+					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y))* 
+					(TILESET_TILE + TILESET_SPACING);
+					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE,
+						x * TILE, ((y-1) - startY)* TILE - offsetY, TILESET_TILE, TILESET_TILE);
 				}
 				idx++;
 			}
 		}
 	}
 }
+
+/*var cells = [];
+function intialize()
+{
+	for(var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++)
+	{
+		cells[layerIdx] = [];
+		var idx = 0;
+		for(var y = 0; y < level2.layers[layerIdx].height; y++)
+		{
+			cells[layerIdx][y] = [];
+			for(var x = 0; x < level2.layers[layerIdx].width; x++)
+			{
+				if(level2.layers[layerIdx].data[idx] != 0)
+				{
+					cells[layerIdx][y][x] = 1;
+					cells[layerIdx][y-1][x] = 1;
+					cells[layerIdx][y-1][x+1] = 1;
+					cells[layerIdx][y][x+1] = 1;
+				}
+				else if(cells[layerIdx][y][x] != 1)
+				{
+					cells[layerIdx][y][x] = 0;
+				}
+				idx++;
+			}
+		}
+	}
+}*/
 
 
 function run()
@@ -122,22 +192,6 @@ function run()
 }
 
 //initialize();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //--------------------******************** Don't modify anything below here ********************--------------------//
 
