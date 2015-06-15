@@ -229,9 +229,14 @@ function run()
 	
 	var deltaTime = getDeltaTime();
 
+	//player.update(deltaTime);
+	//player.draw();
+
 	stateManager.update(deltaTime);
 
 	stateManager.draw();
+
+
 
 	            //-------- keep down the bottom of run ----------//
 	// update the frame counter 
