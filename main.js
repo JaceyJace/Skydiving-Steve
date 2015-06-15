@@ -122,12 +122,12 @@ function drawMap()
 
 	for(var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++)
 	{
-		//var idx = 0;
+		var idx = 0;
 		for(var y = 0; y<level2.layers[layerIdx].height; y++)
 		{
 			for(var x = 0; x<level2.layers[layerIdx].width; x++)
 			{
-				var idx = x * startY; x < startY + maxTiles; x++;
+				//var idx = x * startY; x < startY + maxTiles; x++;
 				if(level2.layers[layerIdx].data[idx] != 0)
 				{
 					var tileIndex = level2.layers[layerIdx].data[idx]-1;
@@ -136,7 +136,7 @@ function drawMap()
 					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y))* 
 							(TILESET_TILE + TILESET_SPACING);
 					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE,
-						x * TILE, ((y-1) - startY)* TILE - offsetY, TILESET_TILE, TILESET_TILE);
+						x * TILE, (y-1)/* - startY)*/* TILE /*- offsetY*/, TILESET_TILE, TILESET_TILE);
 				}
 				idx++;
 			}
