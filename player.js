@@ -2,9 +2,9 @@ var LEFT = 0;
 var RIGHT = 1;
 
 var ANIM_IDLE = 0;
-//var ANIM_TURN_LEFT = 1;
-//var ANIM_TURN_RIGHT = 2;
-var ANIM_MAX = 1;//3;
+var ANIM_TURN_LEFT = 1;
+var ANIM_TURN_RIGHT = 2;
+var ANIM_MAX = 3;
 
 var Player = function() 
 	{
@@ -71,16 +71,16 @@ var Player = function()
 		{
 		 	left = true;
 		 	this.direction = LEFT;
-		 	if(this.sprite.currentAnimation != ANIM_WALK_LEFT)
-		 		this.sprite.setAnimation(ANIM_WALK_LEFT);
+		 	if(this.sprite.currentAnimation != ANIM_TURN_LEFT)
+		 		this.sprite.setAnimation(ANIM_TURN_LEFT);
 		}
 
 		else if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == true) 
 		{
 		 	right = true;
 		 	this.direction = RIGHT;
-		 	if(this.sprite.currentAnimation != ANIM_WALK_RIGHT)
-		 		this.sprite.setAnimation(ANIM_WALK_RIGHT);
+		 	if(this.sprite.currentAnimation != ANIM_TURN_RIGHT)
+		 		this.sprite.setAnimation(ANIM_TURN_RIGHT);
 		}
 
 		// STOP SHAKING
