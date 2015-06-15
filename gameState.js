@@ -13,7 +13,7 @@ GameState.prototype.unload = function()
 
 GameState.prototype.update = function(deltaTime) 
 {
-	player.update();
+	player.update(deltaTime);
 }
 
 GameState.prototype.draw = function() 
