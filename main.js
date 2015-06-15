@@ -110,11 +110,12 @@ function drawMap()
 
 	for(var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++)
 	{
+		//var idx = 0;
 		for(var y = 0; y<level2.layers[layerIdx].height; y++)
 		{
 			for(var x = 0; x<level2.layers[layerIdx].width; x++)
 			{
-				var idx = x = startY; x < startY + maxTiles; x++;
+				var idx = x * startY; x < startY + maxTiles; x++;
 				if(level2.layers[layerIdx].data[idx] != 0)
 				{
 					var tileIndex = level2.layers[layerIdx].data[idx]-1;
