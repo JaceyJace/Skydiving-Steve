@@ -110,7 +110,7 @@ var Player = function()
 		//DRAW PLAYER
 Player.prototype.draw = function()
 	{
-		this.sprite.draw(context, this.position.x - worldOffsetX, this.position.y);
+		this.sprite.draw(context, this.position.x - worldOffsetY, this.position.y);
 		context.save();
 		context.translate(this.x, this.y);
 		context.restore();
