@@ -8,19 +8,19 @@ var ANIM_MAX = 3;
 
 var Player = function() 
 	{
-		this.sprite = new Sprite("steve.png");					
+		this.sprite = new Sprite("test.png");					
 
-		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//idle
-			[0, 1, 2, 3, 4,]);
+		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//idle
+			[0, 1, 2, 3, 4, 5, 6, 7]);
 
-		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall left
-			[5]);
+		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//fall left
+			[8]);
 
-		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
-			[6]);
+		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//fall right
+			[9]);
 
-		this.sprite.buildAnimation(3, 3, 200, 141, 0.05,		//fall right
-			[7]);
+		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//collision
+			[10]);
 
 		for(var i=0; i<ANIM_MAX; i++)
 		{
