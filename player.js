@@ -116,5 +116,5 @@ var Player = function()
 		//DRAW PLAYER
 Player.prototype.draw = function()
 	{
-		this.sprite.draw(context, this.position.x , this.position.y);
+		this.sprite.draw(context, this.position.x, this.position.y - worldOffsetY);
 	}
