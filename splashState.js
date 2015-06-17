@@ -23,6 +23,7 @@ SplashState.prototype.update = function(deltaTime)
 
 SplashState.prototype.draw = function() 
 {
-	context.fillStyle = "#F10B0B";
-	context.fillRect(0, 0, canvas.width, canvas.height);
+	var splashScreen = document.createElement("img");
+	splashScreen.src = "splashScreen.png"
+	
 }
