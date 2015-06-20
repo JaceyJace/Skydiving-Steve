@@ -45,12 +45,13 @@ var fpsTime = 0;
 
 var player = new Player();
 var keyboard = new Keyboard();
+var enemy = new Enemy();
 
 //CREATING THE LEVEL
 //Level Layers
-var LAYER_BACKGROUND = 0;
-var LAYER_PLATFORMS = 1;
-var LAYER_BACKGROUND2 = 2;
+//var LAYER_BACKGROUND = 0;
+var LAYER_PLATFORMS = 0;
+//var LAYER_BACKGROUND2 = 2;
 //var LAYER_OBJECT_ENEMY = 2;
 var LAYER_COUNT = 1;
 //var LAYER_OBJECT_TRIGGER = 3;
@@ -96,11 +97,11 @@ function cellAtTileCoord(layer, tx, ty)
 function tileToPixel(tile)
 {
 	return tile * TILE;
-}
+};
 function pixelToTile(pixel)
 {
 	return Math.floor(pixel/TILE);
-}
+};
 
 function bound(value, min, max)
 {
@@ -109,7 +110,7 @@ function bound(value, min, max)
 	if(value > max)
 		return max;
 	return value;
-}
+};
 
 //Image for JSON
 var tileset = document.createElement("img");
@@ -189,6 +190,7 @@ function initialize()
 			}
 		}
 	}
+
 }
 
 
