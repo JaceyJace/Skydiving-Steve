@@ -5,11 +5,15 @@ var GameoverState = function()
 
 GameoverState.prototype.load = function() 
 {
-	this.GameoverTimer = 3;
+	/*if (player.isDead) == true
+	{
+		gamestate = STATE_GAMEOVER;
+	}*/
 }
 
 GameoverState.prototype.unload = function() 
 {
+	this.GameoverTimer = 3;
 	this.GameoverTimer -= deltaTime;
 	if(this.GameoverTimer <= 0)
 	{

@@ -6,6 +6,7 @@ var ANIM_TURN_LEFT = 1;
 var ANIM_TURN_RIGHT = 2;
 var ANIM_MAX = 3;
 
+
 var Player = function() 
 	{
 		this.sprite = new Sprite("steve.png");					

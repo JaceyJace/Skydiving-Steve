@@ -72,6 +72,7 @@ var MAXDY = METER * 15;
 var ACCEL = MAXDX * 2;
 var FRICTION = MAXDX * 6;
 
+//var player.isDead == true
 
 //SIDESCROLLING AND COLLISION
 function cellAtPixelCoord(layer, x, y)
