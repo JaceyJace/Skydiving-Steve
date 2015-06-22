@@ -29,34 +29,13 @@ var Player = function()
 
 
 		this.position = new Vector2 ();
-		this.position.set(150, 300);
-		this.width = 118;
+		this.position.set(230, 180);
+		this.width = 120;
 		this.height = 93;
 		this.velocity = new Vector2 (0,0);
 		this.isDead = false;
 		this.direction = LEFT;
 		this.cooldownTimer = 0;		
-
-/*
-		//CHUCK
-		this.sprite = new Sprite("ChuckNorris.png");					
-
-		this.sprite.buildAnimation(12, 8, 165, 126, 0.05,		//idle left
-			[0, 1, 2, 3, 4, 5, 6, 7]);
-
-		for(var i=0; i<ANIM_MAX; i++)
-		{
-			this.sprite.setAnimationOffset(i, -55, -87)
-		}
-
-		this.position = new Vector2 ();
-		this.position.Set(5*35, 10*35);
-		this.width = 159;
-		this.height = 163;
-		this.velocity = new Vector2 ();
-		this.isDead = false;
-		this.direction = LEFT;
-		this.cooldownTimer = 0;*/
 	};
 
 		//PLAYER MOVEMENT
