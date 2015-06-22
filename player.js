@@ -30,8 +30,8 @@ var Player = function()
 
 		this.position = new Vector2 ();
 		this.position.set(150, 300);
-		this.width = 200;
-		this.height = 141;
+		this.width = 118;
+		this.height = 93;
 		this.velocity = new Vector2 (0,0);
 		this.isDead = false;
 		this.direction = LEFT;
@@ -89,6 +89,13 @@ var Player = function()
 		 		this.sprite.setAnimation(ANIM_TURN_RIGHT);
 		}
 
+		else if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == false||
+			keyboard.isKeyDown(keyboard.KEY_LEFT) == false)
+		{
+			if(this.sprite.currentAnimation != ANIM_IDLE)
+		 		this.sprite.setAnimation(ANIM_IDLE);
+		}
+
 		// STOP SHAKING
 	if (left)
 		 	ddx = ddx - ACCEL; // player wants to go left
@@ -128,6 +135,54 @@ var Player = function()
 		var cellright = cellAtTileCoord(LAYER_PLATFORMS, tx + 1, ty);
 		var celldown = cellAtTileCoord(LAYER_PLATFORMS, tx, ty + 1);
 		var celldiag = cellAtTileCoord(LAYER_PLATFORMS, tx + 1, ty + 1);
+
+		// If the player has vertical velocity, then check to see if they have hit a platform
+	 // below or above, in which case, stop their vertical velocity, and clamp their
+	 // y position:
+	if (this.velocity.y > 0) 
+	{
+		if ((celldown && !cell) || (celldiag && !cellright && nx)) 
+		{
+			 // clamp the y position to avoid falling into platform below
+			 this.position.y = tileToPixel(ty);
+			 this.velocity.y = 0; 	// stop downward velocity
+			 this.falling = false;  // no longer falling
+			 this.jumping = false;  // (or jumping)
+			 ny = 0; 				// no longer overlaps the cells below
+		}
+		}
+		else if (this.velocity.y < 0) 
+		{
+		if ((cell && !celldown) || (cellright && !celldiag && nx)) 
+		{
+			 // clamp the y position to avoid jumping into platform above
+			 this.position.y = tileToPixel(ty + 1);
+			 this.velocity.y = 0; // stop upward velocity
+
+			 // player is no longer really in that cell, we clamped them to the cell below
+			 cell = celldown;
+			 cellright = celldiag; // (ditto)
+			 ny = 0; // player no longer overlaps the cells below
+		}
+	}
+		if (this.velocity.x > 0) 
+		{
+		 	if ((cellright && !cell) || (celldiag && !celldown && ny)) 
+		 		{
+					 // clamp the x position to avoid moving into the platform we just hit
+					 this.position.x = tileToPixel(tx);
+					 this.velocity.x = 0; // stop horizontal velocity
+				}
+		}
+		else if (this.velocity.x < 0) 
+		{
+		 	if ((cell && !cellright) || (celldown && !celldiag && ny)) 
+		 	{
+				// clamp the x position to avoid moving into the platform we just hit
+				this.position.x = tileToPixel(tx + 1);
+				this.velocity.x = 0; // stop horizontal velocity
+			}
+		}
 	}
 
 		//DRAW PLAYER
