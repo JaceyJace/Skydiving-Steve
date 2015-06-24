@@ -40,6 +40,9 @@ GameState.prototype.load = function()
 			idx++;
 		}
 	}
+	//HUD var
+	var score = 0;
+	var lives = 3;
 }
 
 GameState.prototype.unload = function() 
@@ -59,7 +62,7 @@ GameState.prototype.update = function(deltaTime)
 	}
 }
 
-GameState.prototype.draw = function() 
+GameState.prototype.draw = function(stevehead) 
 {
 	drawMap();
 	player.draw();
@@ -71,4 +74,8 @@ GameState.prototype.draw = function()
 	{
 		enemies[i].draw();
 	}
+	var stevehead = document.createElement("img");
+	stevehead.src = "stevehead.png";
+	context.drawImage(stevehead, 20, 15)
+	
 }
