@@ -194,6 +194,14 @@ function initialize()
 			}
 		}
 	}
+	musicBackground = new Howl(
+	{
+		urls: ["SurfingLlama.ogg"],
+		loop: true,
+		buffer: true,
+		volume: 0.1
+	});
+	musicBackground.play();
 }
 
 
