@@ -1,3 +1,6 @@
+var enemies = [];
+var coins = [];
+
 var GameState = function() 
 {
 	this.prototype = BaseState;

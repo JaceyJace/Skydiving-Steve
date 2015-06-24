@@ -1,8 +1,8 @@
 var Enemy = function(x, y)
 {
-	this.sprite = new Sprite("cumulus-huge.png");
-	//this.sprite.buildAnimation(2, 1, 88, 94, 0.3, [0,1]);
-	//this.sprite.setAnimationOffset(0, -35, -40);
+	this.sprite = new Sprite("Untitled.png");
+	this.sprite.buildAnimation(2, 1, 193, 130, 0.3, [0,1]);
+	this.sprite.setAnimationOffset(0, -35, -40);
 
 	this.position = new Vector2();
 	this.position.set(x, y);
@@ -17,7 +17,7 @@ Enemy.prototype.update = function(deltaTime)
 {
 	this.sprite.update(deltaTime);
 
-	if(this.pause > 0)
+	/*if(this.pause > 0)
 	{
 		this.pause -= deltaTime;
 	}
@@ -63,7 +63,7 @@ Enemy.prototype.update = function(deltaTime)
 		this.position.x = Math.floor(this.position.x + (deltaTime * this.velocity.x));
 		this.velocity.x = bound(this.velocity.x + (deltaTime * ddx),
 								-ENEMY_MAXDX, ENEMY_MAXDX);
-	}
+	}*/
 }
 
 Enemy.prototype.draw = function()

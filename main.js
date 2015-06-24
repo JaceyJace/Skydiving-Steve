@@ -46,8 +46,8 @@ var fpsTime = 0;
 var player = new Player();
 var keyboard = new Keyboard();
 var enemy = new Enemy();
-var coins = [];
-var enemies = [];
+//var coins = [];
+//var enemies = [];
 
 //CREATING THE LEVEL
 //Level Layers
