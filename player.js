@@ -9,7 +9,7 @@ var ANIM_MAX = 3;
 
 var Player = function() 
 	{
-		this.sprite = new Sprite("steve.png");					
+		this.sprite = new Sprite("stevefix.png");					
 
 		this.sprite.buildAnimation(4, 3, 118, 73, 0.05,		//idle
 			[0, 1, 2, 3, 4, 5, 6, 7]);

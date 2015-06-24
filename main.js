@@ -62,11 +62,11 @@ var LAYER_COUNT = 1;
 //Setting Terms For Layers
 var TILE = 35
 var MAP = {tw: 12, th: 100};
-var TILESET_TILE = TILE * 2;
-var TILESET_PADDING = 2;
-var TILESET_SPACING = 2;
-var TILESET_COUNT_X = 14;//27;
-var TILESET_COUNT_Y = 14;//14;
+var TILESET_TILE = TILE;
+var TILESET_PADDING = 0;
+var TILESET_SPACING = 0;
+var TILESET_COUNT_X = 16;//27;
+var TILESET_COUNT_Y = 16;//14;
 
 var METER = TILE;
 var GRAVITY = METER * 5/*9.8*/ * 5//6;
@@ -118,7 +118,7 @@ function bound(value, min, max)
 
 //Image for JSON
 var tileset = document.createElement("img");
-tileset.src = "tileset.png";
+tileset.src = "maptestgrass.png";
 
 var worldOffsetY = 0;
 function drawMap()
