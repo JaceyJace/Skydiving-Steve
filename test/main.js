@@ -68,11 +68,11 @@ var LAYER_COUNT = 1;
 
 
 var MAP = {tw: 12, th: 100};
-var TILESET_TILE = TILE * 2;
+var TILESET_TILE = TILE ;
 var TILESET_PADDING = 0;//2;
 var TILESET_SPACING = 0;//2;
-var TILESET_COUNT_X = 8;//14;//27;
-var TILESET_COUNT_Y = 8;//14;//14;
+var TILESET_COUNT_X = 16;//14;//27;
+var TILESET_COUNT_Y = 16;//14;//14;
 
 
 

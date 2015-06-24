@@ -24,7 +24,7 @@ var Player = function()
 
 		for(var i=0; i<ANIM_MAX; i++)
 		{
-			this.sprite.setAnimationOffset(i, -55, -87)
+			this.sprite.setAnimationOffset(i, -60, -2)
 		}
 
 
