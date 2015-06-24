@@ -31,7 +31,7 @@ var Player = function()
 
 		this.position = new Vector2 ();
 		this.position.set(230, 180);
-		this.width = 120;
+		this.width = 118;
 		this.height = 93;
 		this.velocity = new Vector2 (0,0);
 		this.isDead = false;
