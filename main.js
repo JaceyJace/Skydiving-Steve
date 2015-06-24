@@ -47,13 +47,14 @@ var player = new Player();
 var keyboard = new Keyboard();
 var enemy = new Enemy();
 var coins = [];
+var enemies = [];
 
 //CREATING THE LEVEL
 //Level Layers
 //var LAYER_BACKGROUND = 0;
 var LAYER_PLATFORMS = 0;
 //var LAYER_BACKGROUND2 = 2;
-var LAYER_OBJECT_ENEMY = 1;
+var LAYER_OBJECT_ENEMIES = 1;
 var LAYER_OBJECT_COINS = 2;
 var LAYER_COUNT = 1;
 //var LAYER_OBJECT_TRIGGER = 3;
@@ -193,23 +194,6 @@ function initialize()
 			}
 		}
 	}
-	//add coins
-	idx = 0;
-	for(var y = 0; y < level2.layers[LAYER_OBJECT_COINS].height; y++)
-	{
-		for(var x = 0; x < level2.layers[LAYER_OBJECT_COINS].width; x++)
-		{
-			if(level2.layers[LAYER_OBJECT_COINS].data[idx] != 0)
-			{
-				var px = tileToPixel(x);
-				var py = tileToPixel(y);
-				var c = new Coin(px, py);
-				coins.push(c);
-			}
-			idx++;
-		}
-	}
-
 }
 
 
