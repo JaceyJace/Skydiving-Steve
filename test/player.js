@@ -8,18 +8,18 @@ var ANIM_MAX = 3;
 
 var Player = function() 
 	{
-		this.sprite = new Sprite("steve.png");					
+		this.sprite = new Sprite("stevefix.png");					
 
-		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//idle
+		this.sprite.buildAnimation(4, 3, 118, 73, 0.05,		//idle
 			[0, 1, 2, 3, 4, 5, 6, 7]);
 
-		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//fall left
+		this.sprite.buildAnimation(4, 3, 118, 73, 0.05,		//fall left
 			[8]);
 
-		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//fall right
+		this.sprite.buildAnimation(4, 3, 118, 73, 0.05,		//fall right
 			[9]);
 
-		this.sprite.buildAnimation(4, 3, 118, 93, 0.05,		//collision
+		this.sprite.buildAnimation(4, 3, 118, 73, 0.05,		//collision
 			[10]);
 
 		for(var i=0; i<ANIM_MAX; i++)
@@ -30,8 +30,8 @@ var Player = function()
 
 		this.position = new Vector2 ();
 		this.position.set(230, 180);
-		this.width = 120;
-		this.height = 93;
+		this.width = 118;
+		this.height = 73;
 		this.velocity = new Vector2 (0,0);
 		this.isDead = false;
 		this.direction = LEFT;

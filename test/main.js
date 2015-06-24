@@ -118,7 +118,7 @@ function bound(value, min, max)
 
 //Image for JSON
 var tileset = document.createElement("img");
-tileset.src = "maptest.png";
+tileset.src = "maptestgrass.png";
 
 var worldOffsetY = 0;
 function drawMap()

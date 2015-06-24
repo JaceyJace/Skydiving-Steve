@@ -35,6 +35,36 @@ level2={ "height":100,
          "tileheight":70,
          "tilewidth":70,
          "transparentcolor":"#ff00ff"
+        }, 
+        {
+         "firstgid":65,
+         "image":"..\/..\/School disk\/test\/maptest.png",
+         "imageheight":560,
+         "imagewidth":560,
+         "margin":0,
+         "name":"maptest",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":70,
+         "tilewidth":70
+        }, 
+        {
+         "firstgid":129,
+         "image":"..\/..\/School disk\/test\/maptestgrass.png",
+         "imageheight":560,
+         "imagewidth":560,
+         "margin":0,
+         "name":"maptestgrass",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":35,
+         "tilewidth":35
         }],
  "tilewidth":35,
  "version":1,
