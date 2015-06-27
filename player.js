@@ -4,7 +4,8 @@ var RIGHT = 1;
 var ANIM_IDLE = 0;
 var ANIM_TURN_LEFT = 1;
 var ANIM_TURN_RIGHT = 2;
-var ANIM_MAX = 3;
+var ANIM_COLLISION = 3
+var ANIM_MAX = 4;
 
 
 var Player = function() 

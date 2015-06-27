@@ -1,6 +1,6 @@
 var enemies = [];
 var coins = [];
-var lives =3;
+var lives = 3;
 
 var GameState = function() 
 {
@@ -81,8 +81,8 @@ GameState.prototype.update = function(deltaTime)
 	//COIN collision
 	for(var c=0; c<coins.length; c++)
 		{
-			if(intersects( player.position.x, player.position.y,
-			 coins[c].position.x, coins[c].position.y) == true)
+			if(intersects( player.position.x, player.position.y, player.width/2, player.height/2,
+			 coins[c].position.x, coins[c].position.y, TILE, TILE) == true)
 			{
 				coins.splice(c, 1);
 				// increment the player score
@@ -93,10 +93,10 @@ GameState.prototype.update = function(deltaTime)
 
 	//currently removing all clouds from the map. not sure why
 	//CLOUD collision
-	/*for(var e=0; e<enemies.length; e++)
+	for(var e=0; e<enemies.length; e++)
 	{
-		if(intersects( player.position.x, player.position.y,
-		 enemies[e].position.x, enemies[e].position.y) == true)
+		if(intersects(player.position.x, player.position.y, player.width/2, player.height/2,
+		 enemies[e].position.x, enemies[e].position.y, TILE, TILE) == true)
 		{
 			enemies.splice(e, 1);
 			hit = true;
@@ -106,19 +106,19 @@ GameState.prototype.update = function(deltaTime)
 			player.position.y += 50;
 			break;	
 		}	
-	}*/
+	}
 
 		//invented variables to counter illegal break statement
-		/*for(var x=0; x<lives.length; x++)
+		for(var x=0; x<lives.length; x++)
 		{
-			if(intersects( player.position.x, player.position.y,
-			 LAYER_PLATFORMS) == true)
+			if(intersects(player.position.x, player.position.y, player.width/2, player.height/2,
+			 LAYER_PLATFORMS, TILE, TILE) == true)
 			{
 				player.isDead = true;
 				lives -= 1;
 				break;	
 			}	
-		}*/
+		}
 }
 
 GameState.prototype.draw = function(stevehead) 
