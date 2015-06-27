@@ -1,5 +1,6 @@
 var enemies = [];
 var coins = [];
+var lives =3;
 
 var GameState = function() 
 {
@@ -40,6 +41,7 @@ GameState.prototype.load = function()
 			idx++;
 		}
 	}
+
 	//HUD var
 	var score = 0;
 	var lives = 3;
@@ -60,22 +62,83 @@ GameState.prototype.update = function(deltaTime)
 	{
 		enemies[i].update(deltaTime);
 	}
+
+	//tests if 2 rectangles are intersecting.
+		//Pass in the x,y coordinates, width and height of each rectangle.
+		//Returns 'true' if the rectangles are intersecting
+	function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
+	{
+		if(y2 + h2 < y1 ||
+			x2 + w2 < x1 ||
+			x2 > x1 + w1 ||
+			y2 > y1 + h1)
+			{
+				return false;
+			}
+			return true;
+	}
+
+	//COIN collision
+	for(var c=0; c<coins.length; c++)
+		{
+			if(intersects( player.position.x, player.position.y,
+			 coins[c].position.x, coins[c].position.y) == true)
+			{
+				coins.splice(c, 1);
+				// increment the player score
+				score += 10;
+				break;	
+			}	
+		}
+
+	//currently removing all clouds from the map. not sure why
+	//CLOUD collision
+	/*for(var e=0; e<enemies.length; e++)
+	{
+		if(intersects( player.position.x, player.position.y,
+		 enemies[e].position.x, enemies[e].position.y) == true)
+		{
+			enemies.splice(e, 1);
+			hit = true;
+			// decrement the player score
+			score -= 5;
+			lives -= 1;
+			player.position.y += 50;
+			break;	
+		}	
+	}*/
+
+		//invented variables to counter illegal break statement
+		/*for(var x=0; x<lives.length; x++)
+		{
+			if(intersects( player.position.x, player.position.y,
+			 LAYER_PLATFORMS) == true)
+			{
+				player.isDead = true;
+				lives -= 1;
+				break;	
+			}	
+		}*/
 }
 
 GameState.prototype.draw = function(stevehead) 
 {
 	drawMap();
 	player.draw();
+	var stevehead = document.createElement("img");
+	stevehead.src = "stevehead.png";
 	for(var i=0; i<coins.length; i++)
 	{
 		coins[i].draw();
 	}
+
 	for(var i=0; i<enemies.length; i++)
 	{
 		enemies[i].draw();
 	}
-	var stevehead = document.createElement("img");
-	stevehead.src = "stevehead.png";
-	context.drawImage(stevehead, 20, 15)
-	
+
+	for(var i=0; i<lives; i++)
+	{
+	 	context.drawImage(stevehead, 5 + ((stevehead.width+2)*i), 27);
+	} 
 }

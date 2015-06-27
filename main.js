@@ -46,8 +46,9 @@ var fpsTime = 0;
 var player = new Player();
 var keyboard = new Keyboard();
 var enemy = new Enemy();
-//var coins = [];
+var coins = [];
 //var enemies = [];
+var score = 0;
 
 //CREATING THE LEVEL
 //Level Layers
@@ -232,7 +233,13 @@ function run()
 	// draw the FPS
 	context.fillStyle = "#f00";
 	context.font="14px Arial";
-	context.fillText("FPS: " + fps, 5, 20, 100);
+	context.fillText("FPS: " + fps, 422, 12, 100);
+
+	// score
+	context.fillStyle = "yellow";
+	context.font="32px Arial";
+	var scoreText = "Score: " + score;
+	context.fillText(scoreText, 0, 25);
 
 
 }
