@@ -29,10 +29,11 @@ SplashState.prototype.draw = function()
 	var splashscreen2 = document.createElement("img");
 	splashscreen2.src = "splashscreen2.png";
 
-	if(this.splashTimer <=10 && >=6)
+	if(this.splashTimer <=10)
 	{
 		context.drawImage(splashscreen, 0, 0);
 	}
+	
 	if(this.splashTimer <=5)
 	{
 		context.drawImage(splashscreen2, 0, 0)
