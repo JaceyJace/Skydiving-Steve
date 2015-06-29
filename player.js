@@ -22,7 +22,7 @@ var Player = function()
 			[9]);
 
 		this.sprite.buildAnimation(4, 3, 118, 73, 0.05,		//collision
-			[10]);
+			[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
 
 		for(var i=0; i<ANIM_MAX; i++)
 		{
@@ -54,6 +54,16 @@ var Player = function()
 		var ddx = 0; // acceleration
 		var ddy = GRAVITY;
 
+		sfxPain = new Howl(
+	{
+		urls: ["Pain.ogg"],
+		buffer: true,
+		volume: 0.7,
+		onend: function() {
+			isSfxPlaying = false;
+		}
+	});
+
 		// CHECK KEYPRESS
 		if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true) 
 		{
@@ -72,7 +82,8 @@ var Player = function()
 		}
 
 		else if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == false||
-			keyboard.isKeyDown(keyboard.KEY_LEFT) == false)
+			keyboard.isKeyDown(keyboard.KEY_LEFT) == false &&
+			this.sprite.currentAnimation != ANIM_COLLISION)
 		{
 			if(this.sprite.currentAnimation != ANIM_IDLE)
 		 		this.sprite.setAnimation(ANIM_IDLE);

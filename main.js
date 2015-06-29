@@ -201,11 +201,7 @@ function initialize()
 		urls: ["SurfingLlama.ogg"],
 		loop: true,
 		buffer: true,
-<<<<<<< HEAD
-		volume: 0
-=======
 		volume: 0//0.1
->>>>>>> origin/master
 	});
 	musicBackground.play();
 }

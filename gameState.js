@@ -119,11 +119,7 @@ GameState.prototype.update = function(deltaTime)
 	for(var e=0; e<enemies.length; e++)
 	{
 		if(intersects(player.position.x, player.position.y, player.width/2, player.height/2,
-<<<<<<< HEAD
 		 enemies[e].position.x, enemies[e].position.y,TILE,TILE) == true)
-=======
-		 enemies[e].position.x, enemies[e].position.y) == true)
->>>>>>> origin/master
 		{
 			enemies.splice(e, 1);
 			hit = true;
@@ -133,8 +129,6 @@ GameState.prototype.update = function(deltaTime)
 			break;	
 		}	
 	}
-<<<<<<< HEAD
-=======
 
 	//invented variables to counter illegal break statement
 	for(var x=0; x<lives.length; x++)
@@ -147,7 +141,6 @@ GameState.prototype.update = function(deltaTime)
 			break;	
 		}	
 	}
->>>>>>> origin/master
 }
 
 GameState.prototype.draw = function(stevehead) 
