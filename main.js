@@ -53,15 +53,18 @@ var score = 0;
 //CREATING THE LEVEL
 //Level Layers
 
-var LAYER_PLATFORMS = 0;
-var LAYER_OBJECT_COINS = 1;
+var LAYER_BACKGROUND = 0;
+var LAYER_PLATFORMS = 1;
+var LAYER_OBJECT_COINS = 3;
 var LAYER_OBJECT_ENEMIES = 2;
-var LAYER_COUNT = 1;
+var LAYER_OBJECT_TRIGGER = 4;
+var LAYER_OBJECT_PATH = 5;
+var LAYER_COUNT = 2;
 //var LAYER_OBJECT_TRIGGER = 3;
 
 //Setting Terms For Layers
 var TILE = 35
-var MAP = {tw: 12, th: 100};
+var MAP = {tw: 30, th: 1000};
 var TILESET_TILE = TILE;
 var TILESET_PADDING = 0;
 var TILESET_SPACING = 0;
