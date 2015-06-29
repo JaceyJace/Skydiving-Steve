@@ -47,7 +47,7 @@ var player = new Player();
 var keyboard = new Keyboard();
 var enemy = new Enemy();
 var coins = [];
-//var enemies = [];
+var enemies = [];
 var score = 0;
 
 //CREATING THE LEVEL
@@ -60,7 +60,6 @@ var LAYER_OBJECT_ENEMIES = 2;
 var LAYER_OBJECT_TRIGGER = 4;
 var LAYER_OBJECT_PATH = 5;
 var LAYER_COUNT = 2;
-//var LAYER_OBJECT_TRIGGER = 3;
 
 //Setting Terms For Layers
 var TILE = 35
@@ -202,7 +201,7 @@ function initialize()
 		urls: ["SurfingLlama.ogg"],
 		loop: true,
 		buffer: true,
-		volume: 0.1
+		volume: 0
 	});
 	musicBackground.play();
 }

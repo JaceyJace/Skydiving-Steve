@@ -36,6 +36,7 @@ var Player = function()
 		this.height = 73;
 		this.velocity = new Vector2 (0,0);
 		this.isDead = false;
+		this.hit = false;
 		this.direction = LEFT;
 		this.cooldownTimer = 0;		
 	};
@@ -130,6 +131,11 @@ var Player = function()
 			 this.falling = false;  // no longer falling
 			 this.jumping = false;  // (or jumping)
 			 ny = 0; 				// no longer overlaps the cells below
+			 if(this.sprite.currentAnimation != ANIM_COLLISION)
+		 		this.sprite.setAnimation(ANIM_COLLISION);
+			 lives -= 1;
+			 score -= 15;
+			 player.position.y += 60;
 		}
 		}
 		else if (this.velocity.y < 0) 
