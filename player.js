@@ -42,7 +42,7 @@ var Player = function()
 	};
 
 		//PLAYER MOVEMENT
-	Player.prototype.update = function(deltaTime)
+	Player.prototype.update = function(deltaTime, intersects)
 	{
 		this.sprite.update(deltaTime);
 
@@ -78,8 +78,22 @@ var Player = function()
 		 		this.sprite.setAnimation(ANIM_IDLE);
 		}
 
+		/*for(var e=0; e<enemies.length; e++)
+		{
+			if(intersects(player.position.x, player.position.y, player.width/2, player.height/2,
+				 enemies[e].position.x, enemies[e].position.y, TILE, TILE) == true) 
+				{
+					right = false;
+					left = false;
+					if(this.sprite.currentAnimation != ANIM_COLLISION)
+						this.sprite.setAnimation(ANIM_COLLISION);
+				}
+		}*/
+		
+		
+
 		// STOP SHAKING
-	if (left)
+		if (left)
 		 	ddx = ddx - ACCEL; // player wants to go left
 		else if (wasleft)
 		 	ddx = ddx + FRICTION; // player was going left, but not any more
@@ -118,7 +132,7 @@ var Player = function()
 		var celldown = cellAtTileCoord(LAYER_PLATFORMS, tx, ty + 1);
 		var celldiag = cellAtTileCoord(LAYER_PLATFORMS, tx + 1, ty + 1);
 
-		// If the player has vertical velocity, then check to see if they have hit a platform
+	// If the player has vertical velocity, then check to see if they have hit a platform
 	 // below or above, in which case, stop their vertical velocity, and clamp their
 	 // y position:
 	if (this.velocity.y > 0) 
@@ -169,6 +183,10 @@ var Player = function()
 				this.position.x = tileToPixel(tx + 1);
 				this.velocity.x = 0; // stop horizontal velocity
 			}
+		}
+		if(cellAtTileCoord(LAYER_OBJECT_TRIGGERS, tx, ty) == true)
+		{
+			stateManager.switchState(new GamewinState());
 		}
 	}
 

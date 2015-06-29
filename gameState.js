@@ -45,6 +45,30 @@ GameState.prototype.load = function()
 	//HUD var
 	var score = 0;
 	var lives = 3;
+
+		//trigger layer in collision map - for the door to finish the game
+	cells[LAYER_OBJECT_TRIGGERS] = [];
+	idx = 0;
+	for(var y = 0; y < level2.layers[LAYER_OBJECT_TRIGGERS].height; y++)
+	{
+		cells[LAYER_OBJECT_TRIGGERS][y] = [];
+		for(var x = 0; x < level2.layers[LAYER_OBJECT_TRIGGERS].width; x++)
+		{
+			if(level2.layers[LAYER_OBJECT_TRIGGERS].data[idx] != 0)
+			{
+				cells[LAYER_OBJECT_TRIGGERS][y][x] = 1;
+				cells[LAYER_OBJECT_TRIGGERS][y-1][x] = 1;
+				cells[LAYER_OBJECT_TRIGGERS][y-1][x+1] = 1;
+				cells[LAYER_OBJECT_TRIGGERS][y][x+1] = 1;
+			}
+			else if(cells[LAYER_OBJECT_TRIGGERS][y][x] != 1)
+			{
+				//if we havent wet this cells value then set it to 0 now
+				cells[LAYER_OBJECT_TRIGGERS][y][x] = 0;
+			}
+			idx++;
+		}
+	}
 }
 
 GameState.prototype.unload = function() 
@@ -80,22 +104,26 @@ GameState.prototype.update = function(deltaTime)
 
 	//COIN collision
 	for(var c=0; c<coins.length; c++)
+	{
+		if(intersects(player.position.x, player.position.y, player.width/2, player.height/2,
+		 coins[c].position.x, coins[c].position.y, TILE, TILE) == true)
 		{
-			if(intersects( player.position.x, player.position.y, player.width/2, player.height/2,
-			 coins[c].position.x, coins[c].position.y, TILE, TILE) == true)
-			{
-				coins.splice(c, 1);
-				// increment the player score
-				score += 10;
-				break;	
-			}	
-		}
+			coins.splice(c, 1);
+			// increment the player score
+			score += 10;
+			break;	
+		}	
+	}
 
 	//CLOUD collision
 	for(var e=0; e<enemies.length; e++)
 	{
 		if(intersects(player.position.x, player.position.y, player.width/2, player.height/2,
+<<<<<<< HEAD
 		 enemies[e].position.x, enemies[e].position.y,TILE,TILE) == true)
+=======
+		 enemies[e].position.x, enemies[e].position.y) == true)
+>>>>>>> origin/master
 		{
 			enemies.splice(e, 1);
 			hit = true;
@@ -105,6 +133,21 @@ GameState.prototype.update = function(deltaTime)
 			break;	
 		}	
 	}
+<<<<<<< HEAD
+=======
+
+	//invented variables to counter illegal break statement
+	for(var x=0; x<lives.length; x++)
+	{
+		if(intersects(player.position.x, player.position.y, player.width/2, player.height/2,
+		 LAYER_PLATFORMS, TILE, TILE) == true)
+		{
+			player.isDead = true;
+			lives -= 1;
+			break;	
+		}	
+	}
+>>>>>>> origin/master
 }
 
 GameState.prototype.draw = function(stevehead) 

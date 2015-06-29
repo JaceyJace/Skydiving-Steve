@@ -5,7 +5,7 @@ var SplashState = function()
 
 SplashState.prototype.load = function() 
 {	
-	this.splashTimer = 3;
+	this.splashTimer = 10;
 }
 
 SplashState.prototype.unload = function() 
@@ -23,7 +23,19 @@ SplashState.prototype.update = function(deltaTime)
 
 SplashState.prototype.draw = function() 
 {
-	//var splashScreen = document.createElement("img");
-	//splashScreen.src = "splashScreen.png"
+	var splashscreen = document.createElement("img");
+	splashscreen.src = "splashscreen.png";
+
+	var splashscreen2 = document.createElement("img");
+	splashscreen2.src = "splashscreen2.png";
+
+	if(this.splashTimer <=10)
+	{
+		context.drawImage(splashscreen, 0, 0);
+	}
 	
+	if(this.splashTimer <=5)
+	{
+		context.drawImage(splashscreen2, 0, 0)
+	}
 }
