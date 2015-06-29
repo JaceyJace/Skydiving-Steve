@@ -55,9 +55,9 @@ var score = 0;
 
 var LAYER_BACKGROUND = 0;
 var LAYER_PLATFORMS = 1;
-var LAYER_OBJECT_COINS = 3;
 var LAYER_OBJECT_ENEMIES = 2;
-var LAYER_OBJECT_TRIGGER = 4;
+var LAYER_OBJECT_COINS = 3;
+var LAYER_OBJECT_TRIGGERS = 4;
 var LAYER_OBJECT_PATH = 5;
 var LAYER_COUNT = 2;
 //var LAYER_OBJECT_TRIGGER = 3;
@@ -75,8 +75,8 @@ var METER = TILE;
 var GRAVITY = METER * 5/*9.8*/ * 5//6;
 var MAXDX = METER * 10;
 var MAXDY = METER * 15;
-var ACCEL = MAXDX * 2;
-var FRICTION = MAXDX * 6;
+var ACCEL = MAXDX * 20;//2;
+var FRICTION = MAXDX * 30;//6;
 
 //var player.isDead == true
 
@@ -202,7 +202,7 @@ function initialize()
 		urls: ["SurfingLlama.ogg"],
 		loop: true,
 		buffer: true,
-		volume: 0.1
+		volume: 0//0.1
 	});
 	musicBackground.play();
 }
