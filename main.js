@@ -53,15 +53,18 @@ var score = 0;
 //CREATING THE LEVEL
 //Level Layers
 
-var LAYER_PLATFORMS = 0;
-var LAYER_OBJECT_COINS = 1;
+var LAYER_BACKGROUND = 0;
+var LAYER_PLATFORMS = 1;
 var LAYER_OBJECT_ENEMIES = 2;
-var LAYER_COUNT = 1;
+var LAYER_OBJECT_COINS = 3;
+var LAYER_OBJECT_TRIGGERS = 4;
+var LAYER_OBJECT_PATH = 5;
+var LAYER_COUNT = 2;
 //var LAYER_OBJECT_TRIGGER = 3;
 
 //Setting Terms For Layers
 var TILE = 35
-var MAP = {tw: 12, th: 100};
+var MAP = {tw: 30, th: 1000};
 var TILESET_TILE = TILE;
 var TILESET_PADDING = 0;
 var TILESET_SPACING = 0;
@@ -72,8 +75,8 @@ var METER = TILE;
 var GRAVITY = METER * 5/*9.8*/ * 5//6;
 var MAXDX = METER * 10;
 var MAXDY = METER * 15;
-var ACCEL = MAXDX * 2;
-var FRICTION = MAXDX * 6;
+var ACCEL = MAXDX * 20;//2;
+var FRICTION = MAXDX * 30;//6;
 
 //var player.isDead == true
 
@@ -199,7 +202,7 @@ function initialize()
 		urls: ["SurfingLlama.ogg"],
 		loop: true,
 		buffer: true,
-		volume: 0.1
+		volume: 0//0.1
 	});
 	musicBackground.play();
 }
