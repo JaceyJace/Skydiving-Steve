@@ -126,7 +126,7 @@ var Player = function()
 			this.velocity.x = 0;
 		}
 
-				// collision detection
+		// collision detection
 		// Our collision detection logic is greatly simplified by the fact that the
 		// player is a rectangle and is exactly the same size as a single tile.
 		 // So we know that the player can only ever occupy 1, 2 or 4 cells.
@@ -156,11 +156,12 @@ var Player = function()
 			 this.falling = false;  // no longer falling
 			 this.jumping = false;  // (or jumping)
 			 ny = 0; 				// no longer overlaps the cells below
+			
 			 if(this.sprite.currentAnimation != ANIM_COLLISION)
 		 		this.sprite.setAnimation(ANIM_COLLISION);
 			 lives -= 1;
 			 score -= 15;
-			 player.position.y += 60;
+			 player.position.y -= 60;//60;
 		}
 		}
 		else if (this.velocity.y < 0) 
