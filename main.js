@@ -271,14 +271,6 @@ function run()
 	context.fillStyle = "#f00";
 	context.font="14px Arial";
 	context.fillText("FPS: " + fps, 422, 12, 100);
-
-	// score
-	context.fillStyle = "yellow";
-	context.font="32px Arial";
-	var scoreText = "Score: " + score;
-	context.fillText(scoreText, 0, 25);
-
-
 }
 
 initialize();
