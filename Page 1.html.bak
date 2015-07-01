@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <title>Skydiving Steve</title>
+    <style type="text/css">
+#a1 {  
+  color: #2ba4ca;  
+  background-color: #28a0c8;
+}
+
+</style></head>
+  <body>
+    <div id="a1" style="text-align: center;">
+      <h1 style="background-color: #28a0c8;"><span style="font-family: Gungsuh;"><span
+            style="color: white;"><span style="font-weight: bold;">Steve needs
+              your help!</span></span></span></h1>
+      <span style="font-family: Gungsuh;"> </span>
+      <h1 style="background-color: #28a0c8;"><span style="font-family: Gungsuh;"><span
+            style="color: white;"><span style="font-weight: bold;">He is going
+              to jump from a plane and needs to navigate his way down.</span></span></span></h1>
+      <a href="file:///C:/Users/Klopper/Documents/Git%20Public/Git-Public-Klopper/Skydiving-Steve/Skydiving-Steve/Main.html"><img
+          style="width: 86px; height: 101px;" alt="" src="file:///C:/Users/Klopper/Documents/Git%20Public/Git-Public-Klopper/Skydiving-Steve/Skydiving-Steve/stevehead.png"></a>
+    </div>
+    <h1 style=" text-align: center;"><span style="font-weight: bold;"></span></h1>
+    <div style="text-align: center;"><a href=""><img alt="" src="../../../Desktop/New%20folder/%5E4E1D30A8DACDF6719B8CEB61C061427B488CF4E6E40AE0626D%5Epimgpsh_fullsize_distr.jpg"></a><a
+        href="file:///C:/Users/Klopper/Documents/Git%20Public/Git-Public-Klopper/Skydiving-Steve/Skydiving-Steve/index.html"><img
+          alt="" src="file:///C:/Users/Klopper/Desktop/New%20folder/%5E4E1D30A8DACDF6719B8CEB61C061427B488CF4E6E40AE0626D%5Epimgpsh_fullsize_distr.jpg"></a><br>
+    </div>
+  </body>
+</html>
