@@ -21,6 +21,10 @@ GamewinState.prototype.update = function(deltaTime)
 
 GamewinState.prototype.draw = function() 
 {
-	// this.documentcreateElement uuhhhh img or something
-	//image.src"splash.png"
+	context.fillStyle = "#FFFFFF";
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	
+	context.fillText("You won", 50, 300);
+	context.fillStyle = "FF0000";
+	context.font = "12px Calibri";
 }

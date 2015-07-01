@@ -131,6 +131,11 @@ GameState.prototype.update = function(deltaTime)
 			break;	
 		}	
 	}
+
+	if(lives == 0)
+	{
+		stateManager.switchState(new GameOverState());
+	}
 }
 
 GameState.prototype.draw = function(stevehead) 

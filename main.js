@@ -92,7 +92,9 @@ function cellAtPixelCoord(layer, x, y)
 
 function cellAtTileCoord(layer, tx, ty)
 {
-	if(tx<0 || tx>MAP.tw || ty<0)
+	if(layer == LAYER_OBJECT_TRIGGERS && (tx<0 || tx>=MAP.tw || ty<0))
+		return 0;
+	else if(tx<0 || tx>MAP.tw || ty<0)
 		return 1;
 	//let the player drop off the bottom of the screen (this means death)
 	if(ty>=MAP.th)
@@ -239,7 +241,7 @@ function initialize()
 
 function run()
 {
-	context.fillStyle = "#ccc";		
+	context.fillStyle = "#1498fd";		
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
 	var deltaTime = getDeltaTime();

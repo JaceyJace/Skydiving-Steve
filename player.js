@@ -115,7 +115,7 @@ var Player = function()
 			this.velocity.x = 0;
 		}
 
-				// collision detection
+		// collision detection
 		// Our collision detection logic is greatly simplified by the fact that the
 		// player is a rectangle and is exactly the same size as a single tile.
 		 // So we know that the player can only ever occupy 1, 2 or 4 cells.
@@ -150,7 +150,7 @@ var Player = function()
 	 		 sfxWhack.play();
 			 lives -= 1;
 			 score -= 15;
-			 player.position.y += 60;
+			 player.position.y -= 60;//60;
 		}
 		}
 		else if (this.velocity.y < 0) 
