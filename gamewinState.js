@@ -27,7 +27,7 @@ GamewinState.prototype.draw = function()
 
 	context.fillStyle = "red";
 	context.font = "50px Calibri";
-	var reset = "To Reply press CTRL + R";
+	var reset = "To Replay press CTRL + R";
 	context.fillText(reset, 260, 825);
 
 	context.fillStyle = "yellow";

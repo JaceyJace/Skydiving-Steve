@@ -202,6 +202,7 @@ function initialize()
 			}
 		}
 	}
+<<<<<<< HEAD
 	musicBackground = new Howl(
 	{
 		urls: ["SurfingLlama.ogg"],
@@ -240,6 +241,8 @@ function initialize()
 			isSfxPlaying = false;
 		}
 	});
+=======
+>>>>>>> aab47456df17e73335e6fa6c7128c975fee491b3
 }
 
 

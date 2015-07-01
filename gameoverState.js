@@ -28,11 +28,12 @@ GameoverState.prototype.update = function(deltaTime)
 
 GameoverState.prototype.draw = function() 
 {
-	context.fillRect(0, 0, canvas.width, canvas.height);
-	context.fillStyle = "#FFFFFF";
+	var gameoverscreen = document.createElement("img");
+	gameoverscreen.src = "gameoverscreen.png";
+	context.drawImage(gameoverscreen, 0, 0);
 	
-	
-	context.fillText("You didn't die", 50, 240);
-	context.fillStyle = "#FF0000";
-	context.font = "60px cloudy";
+	context.fillStyle = "yellow";
+	context.font = "50px Calibri";
+	var scoreText = "Score: " + score;
+	context.fillText(scoreText, 450, 825);
 }
