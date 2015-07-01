@@ -230,4 +230,9 @@ GameState.prototype.draw = function(stevehead)
 	{
 	 	context.drawImage(stevehead, 5 + ((stevehead.width+2)*i), 27);
 	} 
+	// score
+	context.fillStyle = "yellow";
+	context.font="32px Arial";
+	var scoreText = "Score: " + score;
+	context.fillText(scoreText, 0, 25);
 }
