@@ -5,10 +5,11 @@ var GameoverState = function()
 
 GameoverState.prototype.load = function() 
 {
-	/*if (player.isDead) == true
-	{
-		gamestate = STATE_GAMEOVER;
-	}*/
+	if(lives == 0)
+		{
+			gameState = STATE_GAMEOVER;
+			return;
+		}		
 }
 
 GameoverState.prototype.unload = function() 
