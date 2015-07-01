@@ -47,7 +47,7 @@ GameState.prototype.load = function()
 		urls: ["SurfingLlama.ogg"],
 		loop: true,
 		buffer: true,
-		volume: 0//0.1
+		volume: 0.1,
 	});
 	musicBackground.play();
 
