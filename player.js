@@ -31,7 +31,7 @@ var Player = function()
 
 
 		this.position = new Vector2 ();
-		this.position.set(230, 180);
+		this.position.set(500, 100);
 		this.width = 118;
 		this.height = 73;
 		this.velocity = new Vector2 (0,0);
@@ -150,7 +150,7 @@ var Player = function()
 	 		 sfxWhack.play();
 			 lives -= 1;
 			 score -= 15;
-			 player.position.y -= 60;//60;
+			 player.position.y += 60;//60;
 		}
 		}
 		else if (this.velocity.y < 0) 

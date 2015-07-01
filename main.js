@@ -198,44 +198,6 @@ function initialize()
 			}
 		}
 	}
-	musicBackground = new Howl(
-	{
-		urls: ["SurfingLlama.ogg"],
-		loop: true,
-		buffer: true,
-		volume: 0//0.1
-	});
-	musicBackground.play();
-
-		sfxWhack = new Howl(
-	{
-		urls: ["whack.ogg"],
-		buffer: true,
-		volume: 0.5,
-		onend: function() {
-			isSfxPlaying = false;
-		}
-	});
-
-		sfxCoins = new Howl(
-	{
-		urls: ["coins.ogg"],
-		buffer: true,
-		volume: 0.5,
-		onend: function() {
-			isSfxPlaying = false;
-		}
-	});
-
-		sfxWoosh = new Howl(
-	{
-		urls: ["whoosh.ogg"],
-		buffer: true,
-		volume: 0.5,
-		onend: function() {
-			isSfxPlaying = false;
-		}
-	});
 }
 
 

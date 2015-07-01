@@ -42,6 +42,75 @@ GameState.prototype.load = function()
 		}
 	}
 
+		musicBackground = new Howl(
+	{
+		urls: ["SurfingLlama.ogg"],
+		loop: true,
+		buffer: true,
+		volume: 0//0.1
+	});
+	musicBackground.play();
+
+		sfxWhack = new Howl(
+	{
+		urls: ["whack.ogg"],
+		buffer: true,
+		volume: 0.5,
+		onend: function() {
+			isSfxPlaying = false;
+		}
+	});
+
+		sfxCoins = new Howl(
+	{
+		urls: ["coins.ogg"],
+		buffer: true,
+		volume: 0.5,
+		onend: function() {
+			isSfxPlaying = false;
+		}
+	});
+
+		sfxWoosh = new Howl(
+	{
+		urls: ["whoosh.ogg"],
+		buffer: true,
+		volume: 0.5,
+		onend: function() {
+			isSfxPlaying = false;
+		}
+	});
+
+		sfxBone = new Howl(
+	{
+		urls: ["bone.ogg"],
+		buffer: true,
+		volume: 0.5,
+		onend: function() {
+			isSfxPlaying = false;
+		}
+	});
+
+		sfxGag = new Howl(
+	{
+		urls: ["gag.ogg"],
+		buffer: true,
+		volume: 0.5,
+		onend: function() {
+			isSfxPlaying = false;
+		}
+	});	
+
+		sfxNecksnap = new Howl(
+	{
+		urls: ["necksnap.ogg"],
+		buffer: true,
+		volume: 0.5,
+		onend: function() {
+			isSfxPlaying = false;
+		}
+	});
+
 	//HUD var
 	var score = 0;
 	var lives = 3;
@@ -63,7 +132,7 @@ GameState.prototype.load = function()
 			}
 			else if(cells[LAYER_OBJECT_TRIGGERS][y][x] != 1)
 			{
-				//if we havent wet this cells value then set it to 0 now
+				//if we havent set this cells value then set it to 0 now
 				cells[LAYER_OBJECT_TRIGGERS][y][x] = 0;
 			}
 			idx++;
@@ -134,6 +203,9 @@ GameState.prototype.update = function(deltaTime)
 
 	if(lives == 0)
 	{
+		sfxNecksnap.play();
+		sfxBone.play();
+		sfxGag.play();
 		stateManager.switchState(new GameOverState());
 	}
 }
