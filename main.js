@@ -79,6 +79,10 @@ var FRICTION = MAXDX * 30;//6;
 
 //var player.isDead == true
 
+var STATE_GAME = 0;
+var STATE_GAMEOVER = 1;
+var STATE_GAMEWIN = 2;
+
 //SIDESCROLLING AND COLLISION
 function cellAtPixelCoord(layer, x, y)
 {
