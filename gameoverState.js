@@ -31,4 +31,9 @@ GameoverState.prototype.draw = function()
 	var gameoverscreen = document.createElement("img");
 	gameoverscreen.src = "gameoverscreen.png";
 	context.drawImage(gameoverscreen, 0, 0);
+	
+	context.fillStyle = "yellow";
+	context.font = "50px Calibri";
+	var scoreText = "Score: " + score;
+	context.fillText(scoreText, 450, 825);
 }
