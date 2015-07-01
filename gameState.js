@@ -206,7 +206,7 @@ GameState.prototype.update = function(deltaTime)
 		sfxNecksnap.play();
 		sfxBone.play();
 		sfxGag.play();
-		stateManager.switchState(new GameOverState());
+		stateManager.switchState(new GameoverState());
 	}
 }
 
