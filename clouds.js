@@ -2,7 +2,7 @@ var Enemy = function(x, y)
 {
 	this.sprite = new Sprite("cloudz.png");
 	this.sprite.buildAnimation(3, 3, 192, 128, 0.8, [0,1,2,3,4,5]);
-	this.sprite.setAnimationOffset(0, -80, -40);
+	this.sprite.setAnimationOffset(0, -120, -40);
 
 	this.position = new Vector2();
 	this.position.set(x, y);

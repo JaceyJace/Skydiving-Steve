@@ -22,7 +22,7 @@ var Player = function()
 			[9]);
 
 		this.sprite.buildAnimation(4, 3, 118, 73, 0.05,		//collision
-			[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
+			[10]);
 
 		for(var i=0; i<ANIM_MAX; i++)
 		{
@@ -54,16 +54,6 @@ var Player = function()
 		var ddx = 0; // acceleration
 		var ddy = GRAVITY;
 
-		sfxPain = new Howl(
-	{
-		urls: ["Pain.ogg"],
-		buffer: true,
-		volume: 0.7,
-		onend: function() {
-			isSfxPlaying = false;
-		}
-	});
-
 		// CHECK KEYPRESS
 		if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true) 
 		{
@@ -82,8 +72,7 @@ var Player = function()
 		}
 
 		else if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == false||
-			keyboard.isKeyDown(keyboard.KEY_LEFT) == false &&
-			this.sprite.currentAnimation != ANIM_COLLISION)
+			keyboard.isKeyDown(keyboard.KEY_LEFT) == false)
 		{
 			if(this.sprite.currentAnimation != ANIM_IDLE)
 		 		this.sprite.setAnimation(ANIM_IDLE);
@@ -156,8 +145,9 @@ var Player = function()
 			 this.falling = false;  // no longer falling
 			 this.jumping = false;  // (or jumping)
 			 ny = 0; 				// no longer overlaps the cells below
-			 if(this.sprite.currentAnimation != ANIM_COLLISION)
-		 		this.sprite.setAnimation(ANIM_COLLISION);
+			 //if(this.sprite.currentAnimation != ANIM_COLLISION)
+		 		//this.sprite.setAnimation(ANIM_COLLISION);
+	 		 sfxWhack.play();
 			 lives -= 1;
 			 score -= 15;
 			 player.position.y += 60;
