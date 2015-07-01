@@ -134,7 +134,7 @@ GameState.prototype.update = function(deltaTime)
 
 	if(lives == 0)
 	{
-		stateManager.switchState(new GameOverState());
+		stateManager.switchState(new GameoverState());
 	}
 }
 
