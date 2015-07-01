@@ -150,7 +150,7 @@ var Player = function()
 	 		 sfxWhack.play();
 			 lives -= 1;
 			 score -= 15;
-			 player.position.y -= 60;//60;
+			 player.position.y += 60;//60;
 		}
 		}
 		else if (this.velocity.y < 0) 
